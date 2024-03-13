@@ -1,22 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:qr_app/Widgets/inputField.dart';
 
 class RegistrationScreen extends StatelessWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
-  inputField(String title) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: Colors.white)),
-      child: TextField(
-        decoration: InputDecoration(
-            labelStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
-            labelText: title,
-            border: InputBorder.none),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,19 +26,19 @@ class RegistrationScreen extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            inputField("Enter your Name"),
+            inputField(title:"Enter your Name"),
             const SizedBox(
               height: 15,
             ),
-            inputField("Enter your Roll no"),
+            inputField(title:"Enter your Roll no"),
             const SizedBox(
               height: 15,
             ),
-            inputField("Enter your Email"),
+            inputField(title: "Enter your Email"),
             const SizedBox(
               height: 15,
             ),
-            inputField("Enter your password"),
+            inputField(title:"Enter your password",isPassword: true,),
             const SizedBox(
               height: 25,
             ),
