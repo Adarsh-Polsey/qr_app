@@ -3,9 +3,16 @@ import 'package:qr_app/Widgets/inputField.dart';
 import 'package:qr_app/screens/HomeScreen.dart';
 import 'package:qr_app/screens/Registration.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController rollnoController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
 
   @override
@@ -61,7 +68,7 @@ class LoginScreen extends StatelessWidget {
                   }));
                 },
                 child: const Text("don't have an account?register",
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: Colors.white,
                     )))
           ],

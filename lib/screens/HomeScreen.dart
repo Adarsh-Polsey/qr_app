@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_app/screens/ScanScreen.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -20,7 +21,10 @@ class HomeScreen extends StatelessWidget {
               size: 200.0,
             ),),
             GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){return ScanScreen(); }));
+
+                },
                 child: Container(
                     padding:
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
