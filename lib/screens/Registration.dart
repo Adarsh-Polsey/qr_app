@@ -28,6 +28,8 @@ class RegistrationScreen extends StatelessWidget {
       "rollno":rollnoController.text
     }
     ));
+    print(res.statusCode);
+    print(res.body);
     if(res.statusCode==200) {
       Navigator.pop;
       print("Success");
@@ -35,6 +37,7 @@ class RegistrationScreen extends StatelessWidget {
     else if(res.statusCode==400)
       print("error 404");
     else
+      // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Try Again")));
       print("something wrong");
   }
   @override
