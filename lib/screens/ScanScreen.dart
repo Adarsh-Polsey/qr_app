@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:qr_app/Widgets/inputField.dart';
-import 'package:qr_app/screens/HomeScreen.dart';
 import 'package:qr_app/screens/ProfileScreen.dart';
 
 class ScanScreen extends StatelessWidget {

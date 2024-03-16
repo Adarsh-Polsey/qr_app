@@ -5,7 +5,6 @@ import 'package:qr_app/screens/Registration.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key}) : super(key: key);
-
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -44,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             GestureDetector(
                 onTap: () {
-                  print("${rollnoController.value}  ${passwordController.value}");
+                  print("${rollnoController.text}  ${passwordController.text}");
                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
                     return HomeScreen();
                   }));
@@ -64,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 enableFeedback: true,
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const RegistrationScreen();
+                    return RegistrationScreen();
                   }));
                 },
                 child: const Text("don't have an account?register",
