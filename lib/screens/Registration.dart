@@ -28,16 +28,14 @@ class RegistrationScreen extends StatelessWidget {
       "rollno":rollnoController.text
     }
     ));
-    print(res.statusCode);
-    print(res.body);
     if(res.statusCode==200) {
-      Navigator.pop;
+      // Navigator.pop;
       print("Success");
     }
     else if(res.statusCode==400)
       print("error 404");
     else
-      // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Try Again")));
+      // ScaffoldMessenger.of()
       print("something wrong");
   }
   @override
@@ -81,7 +79,7 @@ class RegistrationScreen extends StatelessWidget {
             ),
             GestureDetector(
                 onTap: () {
-                  Navigator.pop(context);
+                  // Navigator.pop(context);
                   Register();
                 },
                 child: Container(

@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:qr_app/Widgets/inputField.dart';
 import 'package:qr_app/screens/HomeScreen.dart';
 import 'package:qr_app/screens/Registration.dart';
@@ -13,7 +16,23 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController rollnoController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
+  login()async{
+    Uri url=Uri.parse("https://scnner-web.onrender.com/api/login");
+    var res=await http.post(url,headers: <String,String>{'Content-Type':'application/json;charset=UTF-8'},body: jsonEncode({
+      "rollno":rollnoController.text,
+      "password":passwordController.text
+    }));
+    var data=jsonDecode(res.body);
+    if(data["rollno"]==rollnoController.text){
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+        return HomeScreen();
+      }));
+    }
+    else{
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Incorrect password,Try again")));
+    }
 
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,10 +62,8 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             GestureDetector(
                 onTap: () {
+                  login();
                   print("${rollnoController.text}  ${passwordController.text}");
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-                    return HomeScreen();
-                  }));
                 },
                 child: Container(
                 padding:
