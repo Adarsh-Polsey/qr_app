@@ -14,7 +14,7 @@ class RegistrationScreen extends StatelessWidget {
   String? password;
   String? name;
   String? mail;
-  Register()async{
+  Register(BuildContext context)async{
     Uri uri =Uri.parse("https://scnner-web.onrender.com/api/register");
     rollno=rollnoController.text;
     name=nameController.text;
@@ -35,7 +35,7 @@ class RegistrationScreen extends StatelessWidget {
     else if(res.statusCode==400)
       print("error 404");
     else
-      // ScaffoldMessenger.of()
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("erooor")));
       print("something wrong");
   }
   @override
@@ -80,7 +80,7 @@ class RegistrationScreen extends StatelessWidget {
             GestureDetector(
                 onTap: () {
                   // Navigator.pop(context);
-                  Register();
+                  Register(context);
                 },
                 child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
